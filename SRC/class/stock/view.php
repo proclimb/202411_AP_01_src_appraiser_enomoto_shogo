@@ -136,7 +136,7 @@ function subStockView($param)
 					<th class="list_head">ランク<?php fnOrder('`RANK`', 'stockSearch') ?></th>
 					<th class="list_head">日付<?php fnOrder('INSDT', 'stockSearch') ?></th>
 					<th class="list_head">物件名<?php fnOrder('ARTICLE', 'stockSearch') ?></th>
-					<th class="list_head">部屋<?php fnOrder('ROOM', 'stockSearch') ?></th>
+					<th class="list_head">部屋<?php fnOrder('`ROOM`', 'stockSearch') ?></th>
 					<th class="list_head">面積<?php fnOrder('AREA', 'stockSearch') ?></th>
 					<th class="list_head">最寄駅<?php fnOrder('STATION', 'stockSearch') ?></th>
 					<th class="list_head">距離<?php fnOrder('DISTANCE', 'stockSearch') ?></th>
