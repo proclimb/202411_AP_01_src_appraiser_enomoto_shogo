@@ -8,8 +8,8 @@ function fnArticleEditCheck() {
 		return;
 	}
 	if (isLength(100, "物件名", form.article)) { return; }
-
-	form.act.value = 'articleEditComplete';
+	if (confirm('この内容で登録します。よろしいですか？'))
+		form.act.value = 'articleEditComplete';
 	form.submit();
 }
 
