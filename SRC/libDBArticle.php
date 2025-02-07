@@ -15,24 +15,31 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 	$sql .= " FROM TBLARTICLE";
 	$sql .= " WHERE DEL = $sDel";
 	if ($sArticle) {
+		$sArticle = htmlspecialchars_decode($sArticle, ENT_QUOTES);
 		$sql .= " AND ARTICLE LIKE '%$sArticle%'";
 	}
 	if ($sRoom) {
+		$sRoom = htmlspecialchars_decode($sRoom, ENT_QUOTES);
 		$sql .= " AND ROOM LIKE '%$sRoom%'";
 	}
 	if ($sKeyPlace) {
+		$sKeyPlace = htmlspecialchars_decode($sKeyPlace, ENT_QUOTES);
 		$sql .= " AND KEYPLACE LIKE '%$sKeyPlace%'";
 	}
 	if ($sArticleNote) {
+		$sArticleNote = htmlspecialchars_decode($sArticleNote, ENT_QUOTES);
 		$sql .= " AND ARTICLENOTE LIKE '%$sArticleNote%'";
 	}
 	if ($sKeyBox) {
+		$sKeyBox = htmlspecialchars_decode($sKeyBox, ENT_QUOTES);
 		$sql .= " AND KEYBOX LIKE '%$sKeyBox%'";
 	}
 	if ($sDrawing) {
+		$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);
 		$sql .= " AND DRAWING LIKE '%$sDrawing%'";
 	}
 	if ($sSellCharge) {
+		$sSellCharge = htmlspecialchars_decode($sSellCharge, ENT_QUOTES);
 		$sql .= " AND SELLCHARGE LIKE '%$sSellCharge%'";
 	}
 	if ($orderBy) {
