@@ -398,7 +398,7 @@ function subConstEdit()
 					</select>：
 					<select name="siteMinute">
 						<?php for ($i = 00; $i < 60; $i++) { ?>
-							<option value="<?php print $i ?>" <?php if ($i == $siteMinute) print ' selected="selected"' ?>><?php print $i ?></option>
+							<option value="<?php print $i ?>" <?php if ($i == $siteMinute) print ' selected="selected"' ?>><?php printf('%02d', $i) ?></option>
 						<?php } ?>
 					</select>
 				</td>
