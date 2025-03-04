@@ -51,8 +51,8 @@ function fnSellEditCheck() {
 		alert('築年を入力してください');
 		return;
 	}
-	if (tmp.length != 4 || tmp.match(/[^0-9]+/)) {
-		alert('築年は4桁の半角数字で入力してください');
+	if (tmp.length > 4 || tmp.match(/[^0-9]+/)) {
+		alert('築年は4桁以内の半角数字で入力してください');
 		return;
 	}
 
