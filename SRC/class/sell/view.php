@@ -27,10 +27,7 @@ function subSellView($param)
 					<th>検索日</th>
 					<td colspan="6">
 						<input type="text" name="sSearchFrom" value="<?php print $param["sSearchFrom"] ?>" size="15" />
-						<a href="javascript:cal1.write();" onChange="cal1.getFormValue(); cal1.hide();">
-							<img src="./images/b_calendar.png">
-						</a>
-						<span id="cal1"></span>～
+						<a href="javascript:cal1.write();" onChange="cal1.getFormValue(); cal1.hide();"><img src="./images/b_calendar.png"></a><span id="cal1"></span>～
 						<input type="text" name="sSearchTo" value="<?php print $param["sSearchTo"] ?>" size="15" />
 						<a href="javascript:cal2.write();" onChange="cal2.getFormValue(); cal2.hide();">
 							<img src="./images/b_calendar.png">
