@@ -44,7 +44,9 @@ function subAdminUser()
 						<td class="list_td<?php print $i; ?>"></td>
 						<td class="list_td<?php print $i; ?>"><?php print fnAuthorityName($authority); ?></td>
 						<td class="list_td<?php print $i; ?>">
-							<a href="javascript:fnAdminUserDeleteCheck(<?php print $userNo; ?>,'<?php print $name; ?>');">削除</a>
+							<?php if ($userNo > 1) { ?>
+								<a href="javascript:fnAdminUserDeleteCheck(<?php print $userNo; ?>,'<?php print $name; ?>');">削除</a>
+							<?php } ?>
 						</td>
 					</tr>
 				<?php
