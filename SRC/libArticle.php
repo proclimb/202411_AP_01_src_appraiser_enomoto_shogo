@@ -64,7 +64,11 @@ function subArticle()
 					<th>部屋番号</th>
 					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
-					<td><input type="text" name="sDrawing" value="<?php print $sDrawing ?>" size="30" /></td>
+					<td><input type="radio" name="sDrawing" value="1" checked="checked" /> 作成可
+						<input type="radio" name="sDrawing" value="0" /> 作成不可
+						<input type="radio" name="sDrawing" value="2" /> その他
+
+					</td>
 				</tr>
 				<tr>
 					<th>鍵場所</th>
@@ -126,7 +130,19 @@ function subArticle()
 						<td class="list_td<?php print $i ?>"><?php print $articleNote ?></td>
 						<td class="list_td<?php print $i ?>"><a href="javascript:form.act.value='fManager';form.sName.value='<?php print $article ?>';form.sRoom.value='<?php print $room ?>';form.submit();">表示</a></td>
 						<td class="list_td<?php print $i ?>"><?php print $keyBox ?></td>
-						<td class="list_td<?php print $i ?>"><?php print $drawing ?></td>
+						<td class="list_td<?php print $i ?>"><?php
+																switch ($drawing) {
+																	case "0":
+																		$drawing = "作成不可";
+																		break;
+																	case "2":
+																		$drawing = "その他";
+																		break;
+																	case "1":
+																		$drawing = "作成可";
+																		break;
+																}
+																print $drawing ?></td>
 						<td class="list_td<?php print $i ?>"><?php print $sellCharge ?></td>
 					</tr>
 				<?php
@@ -243,7 +259,11 @@ function subArticleEdit()
 			</tr>
 			<tr>
 				<th>3Dパース</th>
-				<td><input type="text" name="drawing" value="<?php print $drawing ?>" /></td>
+				<td>
+					<input type="radio" name="drawing" value="1" checked="checked" /> 作成可
+					<input type="radio" name="drawing" value="0" <?php if ($del == '0') print ' checked="checked"' ?> /> 作成不可
+					<input type="radio" name="drawing" value="2" /> その他
+				</td>
 			</tr>
 			<tr>
 				<th>営業担当者</th>
