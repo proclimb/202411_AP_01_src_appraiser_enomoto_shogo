@@ -35,8 +35,8 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 		$sql .= " AND KEYBOX LIKE '%$sKeyBox%'";
 	}
 	if ($sDrawing) {
-		$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);
-		$sql .= " AND DRAWING = '$sDrawing'";
+		//$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);←0を表示させると悪さをするため注意！
+		$sql .= " AND DRAWING LIKE '%$sDrawing%'";
 	}
 	if ($sSellCharge) {
 		$sSellCharge = htmlspecialchars_decode($sSellCharge, ENT_QUOTES);
