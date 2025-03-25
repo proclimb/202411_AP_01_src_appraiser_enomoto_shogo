@@ -21,9 +21,9 @@ function subArticle()
 	if ($sDel == '') {
 		$sDel = 1;
 	}
-	//if (!$sDrawing) {
-	//	$sDrawing = 0;
-	//}
+	if (!$sDrawing) {
+		$sDrawing = 0;
+	}
 
 	if (!$sPage) {
 		$sPage = 1;
@@ -68,8 +68,8 @@ function subArticle()
 					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
 					<td><input type="radio" name="sDrawing" value="1" <?php if ($sDrawing == '1') print ' checked="checked"' ?>>作成可
-						<input type="radio" name="sDrawing" value="0" <?php if ($sDrawing == '0') print ' checked="checked"' ?>> 作成不可
-						<input type="radio" name="sDrawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?> /> その他
+						<input type="radio" name="sDrawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?>> 作成不可
+						<input type="radio" name="sDrawing" value="3" <?php if ($sDrawing == '3') print ' checked="checked"' ?> /> その他
 
 					</td>
 				</tr>
@@ -135,14 +135,14 @@ function subArticle()
 						<td class="list_td<?php print $i ?>"><?php print $keyBox ?></td>
 						<td class="list_td<?php print $i ?>"><?php
 																switch ($drawing) {
-																	case "0":
-																		$drawing = "作成不可";
-																		break;
-																	case "2":
-																		$drawing = "その他";
-																		break;
 																	case "1":
 																		$drawing = "作成可";
+																		break;
+																	case "2":
+																		$drawing = "作成不可";
+																		break;
+																	case "3":
+																		$drawing = "その他";
 																		break;
 																}
 																print $drawing ?></td>
@@ -266,8 +266,8 @@ function subArticleEdit()
 				<th>3Dパース</th>
 				<td>
 					<input type="radio" name="drawing" value="1" checked="checked" /> 作成可
-					<input type="radio" name="drawing" value="0" <?php if ($sDrawing == '0') print ' checked="checked"' ?> /> 作成不可
-					<input type="radio" name="drawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?> /> その他
+					<input type="radio" name="drawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?> /> 作成不可
+					<input type="radio" name="drawing" value="3" <?php if ($sDrawing == '3') print ' checked="checked"' ?> /> その他
 				</td>
 			</tr>
 			<tr>

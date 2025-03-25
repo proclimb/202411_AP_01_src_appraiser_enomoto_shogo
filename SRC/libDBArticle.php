@@ -36,7 +36,7 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 	}
 	if ($sDrawing) {
 		$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);
-		$sql .= " AND DRAWING LIKE '%$sDrawing%'";
+		$sql .= " AND DRAWING = '$sDrawing'";
 	}
 	if ($sSellCharge) {
 		$sSellCharge = htmlspecialchars_decode($sSellCharge, ENT_QUOTES);
