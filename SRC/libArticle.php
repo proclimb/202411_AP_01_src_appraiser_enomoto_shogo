@@ -65,8 +65,8 @@ function subArticle()
 					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
 					<td><input type="radio" name="sDrawing" value="1" checked="checked" /> 作成可
-						<input type="radio" name="sDrawing" value="0" /> 作成不可
-						<input type="radio" name="sDrawing" value="2" /> その他
+						<input type="radio" name="sDrawing" value="0" <?php if ($sDrawing == '0') print ' checked="checked"' ?>> 作成不可
+						<input type="radio" name="sDrawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?> /> その他
 
 					</td>
 				</tr>
@@ -173,6 +173,7 @@ function subArticleEdit()
 	$sKeyBox      = htmlspecialchars($_REQUEST['sKeyBox']);
 	$sDueDTFrom   = htmlspecialchars($_REQUEST['sDueDTFrom']);
 	$sDueDTTo     = htmlspecialchars($_REQUEST['sDueDTTo']);
+	$sDrawing     = htmlspecialchars($_REQUEST['sDrawing']);
 	$sSellCharge  = htmlspecialchars($_REQUEST['sSellCharge']);
 
 	$orderBy = $_REQUEST['orderBy'];
@@ -219,6 +220,7 @@ function subArticleEdit()
 		<input type="hidden" name="sKeyBox" value="<?php print $sKeyBox ?>" />
 		<input type="hidden" name="sDueDTFrom" value="<?php print $sDueDTFrom ?>" />
 		<input type="hidden" name="sDueDTTo" value="<?php print $sDueDTTo ?>" />
+		<input type="hidden" name="sDrawing" value="<?php print $sDrawing ?>" />
 		<input type="hidden" name="sSellCharge" value="<?php print $sSellCharge ?>" />
 		<input type="hidden" name="orderBy" value="<?php print $orderBy ?>" />
 		<input type="hidden" name="orderTo" value="<?php print $orderTo ?>" />
@@ -261,8 +263,8 @@ function subArticleEdit()
 				<th>3Dパース</th>
 				<td>
 					<input type="radio" name="drawing" value="1" checked="checked" /> 作成可
-					<input type="radio" name="drawing" value="0" <?php if ($del == '0') print ' checked="checked"' ?> /> 作成不可
-					<input type="radio" name="drawing" value="2" /> その他
+					<input type="radio" name="drawing" value="0" <?php if ($sDrawing == '0') print ' checked="checked"' ?>/> 作成不可
+					<input type="radio" name="drawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?>/> その他
 				</td>
 			</tr>
 			<tr>
