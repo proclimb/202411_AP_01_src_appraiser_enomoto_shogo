@@ -67,9 +67,9 @@ function subArticle()
 					<th>部屋番号</th>
 					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
-					<td><input type="radio" name="sDrawing" value="1" <?php if ($sDrawing == '1') print ' checked="checked"' ?>>作成可
-						<input type="radio" name="sDrawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?>> 作成不可
-						<input type="radio" name="sDrawing" value="3" <?php if ($sDrawing == '3') print ' checked="checked"' ?> /> その他
+					<td><input type="checkbox" name="sDrawing" value="1" <?php if ($sDrawing == '1') print ' checked="checked"' ?>>作成可
+						<input type="checkbox" name="sDrawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?>> 作成不可
+						<input type="checkbox" name="sDrawing" value="3" <?php if ($sDrawing == '3') print ' checked="checked"' ?> /> その他
 
 					</td>
 				</tr>
