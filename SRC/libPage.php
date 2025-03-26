@@ -288,4 +288,14 @@ function fnNumFormat($n)
 
 	return ($y);
 }
+//
+//
+//
+function fnDrawing($n)
+{
+	$tmp[0] = '作成可';
+	$tmp[1] = '作成不可';
+	$tmp[2] = 'その他';
+	return ($tmp[$n]);
+}
 ?>
