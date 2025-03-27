@@ -268,9 +268,11 @@ function subArticleEdit()
 			<tr>
 				<th>3Dパース</th>
 				<td>
-					<input type="radio" name="drawing" value="1" checked="checked" /> 作成可
-					<input type="radio" name="drawing" value="2" <?php if ($sDrawing == '2') print ' checked="checked"' ?> /> 作成不可
-					<input type="radio" name="drawing" value="3" <?php if ($sDrawing == '3') print ' checked="checked"' ?> /> その他
+					<input type="radio" name="drawing" value="1" <?php if ($drawing == '1') print ' checked="checked"' ?> /> 作成可
+					<input type="radio" name="drawing" value="2" <?php if ($drawing == '2') print ' checked="checked"' ?> /> 作成不可
+					<input type="radio" name="drawing" value="3" <?php if ($drawing == '3') print ' checked="checked"' ?> /> その他
+					<?php
+					//var_dump($drawing);?>
 				</td>
 			</tr>
 			<tr>
