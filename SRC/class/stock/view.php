@@ -65,7 +65,7 @@ function subStockView($param)
 							<input type="checkbox" name="sRank[]" value="<?php print $i + 1; ?>" <?php for ($j = 0; $j < 5; $j++) {
 																										if ($param["sRank"][$j] == $i + 1) print ' checked="checked"';
 																									} ?> /> <?php print fnRankName($i) ?>
-						<?php var_dump($param["sRank"]);
+						<?php //var_dump($param["sRank"]);
 						}
 						?>
 					</td>
@@ -121,7 +121,7 @@ function subStockView($param)
 		}
 
 		$sql = fnSqlStockList(0, $param);
-		var_dump($sql);
+		//var_dump($sql);
 		$res = mysqli_query($param["conn"], $sql);
 		$row = mysqli_fetch_array($res);
 
