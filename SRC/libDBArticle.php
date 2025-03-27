@@ -57,7 +57,7 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 		$sql .= " AND (" . implode(" OR ", $conditions) . ")";
 	}*/
 	// 複数の値で検索する場合（$sDrawingが配列）
-	if (!empty($sDrawing)) {
+	if (!empty($sDrawing) && $sDrawing[0] != 0) {  // $sDrawingが空でないかつ0でない場合
 		// 配列内の各値をOR条件で結合
 		$drawingConditions = [];
 		foreach ($sDrawing as $value) {
