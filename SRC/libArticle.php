@@ -12,7 +12,7 @@ function subArticle()
 	$sKeyPlace    = htmlspecialchars($_REQUEST['sKeyPlace']);
 	$sArticleNote = htmlspecialchars($_REQUEST['sArticleNote']);
 	$sKeyBox      = htmlspecialchars($_REQUEST['sKeyBox']);
-	$sDrawing     = htmlspecialchars($_REQUEST['sDrawing']);
+	$sDrawing     = isset($_REQUEST['sDrawing']) ? $_REQUEST['sDrawing'] : []; // チェックボックスが配列で送信される
 	$sSellCharge  = htmlspecialchars($_REQUEST['sSellCharge']);
 	$orderBy = $_REQUEST['orderBy'];
 	$orderTo = $_REQUEST['orderTo'];
@@ -21,8 +21,10 @@ function subArticle()
 	if ($sDel == '') {
 		$sDel = 1;
 	}
-	if (!$sDrawing) {
-		$sDrawing = 0;
+	if (empty($sDrawing)) {
+		$sDrawing = [0]; // 初期状態で全てを検索する
+		//if (!$sDrawing) {
+		//	$sDrawing = 0;
 	}
 
 	if (!$sPage) {
@@ -67,17 +69,11 @@ function subArticle()
 					<th>部屋番号</th>
 					<td><input type="text" name="sRoom" value="<?php print $sRoom ?>" size="30" /></td>
 					<th>3Dパース</th>
-					<td>
-						<?php
-						for ($i = 0; $i < 3; $i++) {
+					<td><input type="checkbox" name="sDrawing[]" value="1" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('1', $sDrawing)) print ' checked="checked"' ?>>作成可
+						<input type="checkbox" name="sDrawing[]" value="2" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('2', $sDrawing)) print ' checked="checked"' ?>> 作成不可
+						<input type="checkbox" name="sDrawing[]" value="3" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('3', $sDrawing)) print ' checked="checked"' ?>> その他
+						<?php var_dump($sDrawing);
 						?>
-							<input type="checkbox" name="sDrawing[]" value="<?php print $i + 1; ?>" <?php for ($j = 0; $j < 3; $j++) {
-																										if ($sDrawing["sDrawing"][$j] == $i + 1) print ' checked="checked"';
-																									} ?> /> <?php print fnDrawing($i) ?>
-						<?php
-						}
-						?>
-
 					</td>
 				</tr>
 				<tr>
@@ -120,7 +116,7 @@ function subArticle()
 				</tr>
 				<?php
 				$sql = fnSqlArticleList(1, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleNote, $sKeyBox, $sDrawing, $sSellCharge, $sPage, $orderBy, $orderTo);
-				//var_dump($sql);
+				var_dump($sql);
 				$res = mysqli_query($conn, $sql);
 				$i = 0;
 				while ($row = mysqli_fetch_array($res)) {
