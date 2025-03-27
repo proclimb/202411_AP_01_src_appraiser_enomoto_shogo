@@ -41,6 +41,7 @@ function fnSqlStockList($flg, $param)
             $where .= "`RANK` = '$value'";
         }
         $where .= ")";
+        //var_dump($where);
     }
     if ($param["sInsDTFrom"]) {
         $where .= " AND INSDT >= '" . $param["sInsDTFrom"] . "'";

@@ -72,7 +72,7 @@ function subArticle()
 					<td><input type="checkbox" name="sDrawing[]" value="1" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('1', $sDrawing)) print ' checked="checked"' ?>>作成可
 						<input type="checkbox" name="sDrawing[]" value="2" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('2', $sDrawing)) print ' checked="checked"' ?>> 作成不可
 						<input type="checkbox" name="sDrawing[]" value="3" <?php if (isset($sDrawing) && is_array($sDrawing) && in_array('3', $sDrawing)) print ' checked="checked"' ?>> その他
-						<?php var_dump($sDrawing);
+						<?php //var_dump($sDrawing);
 						?>
 					</td>
 				</tr>
@@ -116,7 +116,7 @@ function subArticle()
 				</tr>
 				<?php
 				$sql = fnSqlArticleList(1, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleNote, $sKeyBox, $sDrawing, $sSellCharge, $sPage, $orderBy, $orderTo);
-				var_dump($sql);
+				//var_dump($sql);
 				$res = mysqli_query($conn, $sql);
 				$i = 0;
 				while ($row = mysqli_fetch_array($res)) {
