@@ -34,9 +34,37 @@ function fnSqlArticleList($flg, $sDel, $sArticle, $sRoom, $sKeyPlace, $sArticleN
 		$sKeyBox = htmlspecialchars_decode($sKeyBox, ENT_QUOTES);
 		$sql .= " AND KEYBOX LIKE '%$sKeyBox%'";
 	}
-	if ($sDrawing) {
-		//$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);←0を表示させると悪さをするため注意！
+	/*if ($sDrawing) {
+		$sDrawing = htmlspecialchars_decode($sDrawing, ENT_QUOTES);
 		$sql .= " AND DRAWING LIKE '%$sDrawing%'";
+	}*/
+	/* 複数選択された場合に対応するSQLを作成する
+	if (!empty($sDrawing)) {
+		// htmlspecialchars_decode を配列内の各要素に適用
+		$sDrawing = array_map('htmlspecialchars_decode', $sDrawing);
+
+		// SQLクエリの条件部分を作成
+		$conditions = [];
+		foreach ($sDrawing as $value) {
+			// HTMLエスケープ処理を行う
+			$value = htmlspecialchars($value, ENT_QUOTES);
+			// 各条件を配列に追加
+			$conditions[] = "DRAWING LIKE '%$value%'";
+		}
+		var_dump($sDrawing);
+
+		// 条件を OR で結合し、SQLに組み込む
+		$sql .= " AND (" . implode(" OR ", $conditions) . ")";
+	}*/
+	// 複数の値で検索する場合（$sDrawingが配列）
+	if (!empty($sDrawing)) {
+		// 配列内の各値をOR条件で結合
+		$drawingConditions = [];
+		foreach ($sDrawing as $value) {
+			$drawingConditions[] = "DRAWING = '$value'";
+		}
+		// 追加条件をSQLに組み込む
+		$sql .= " AND (" . implode(" OR ", $drawingConditions) . ")";
 	}
 	if ($sSellCharge) {
 		$sSellCharge = htmlspecialchars_decode($sSellCharge, ENT_QUOTES);
