@@ -115,8 +115,8 @@ function subTrade()
 							];
 							// 選択された都道府県がある場合、選択状態を保持
 							foreach ($prefectures as $prefecture) {
-								$selected = ($prefecture == $sPrefecture) ? 'selected="selected"' : '';
-								echo "<option value=\"$prefecture\" $selected>$prefecture</option>";
+								//$selected = ($prefecture == $sPrefecture) ? 'selected="selected"' : '';
+								echo "<option value=\"$prefecture\" >$prefecture</option>";
 							}
 							?>
 						</select>
@@ -334,7 +334,8 @@ function subTradeEdit()
 			<tr>
 				<th>住所（都道府県）</th>
 				<td><input type="text" name="sPrefecture" value="<?php print $sPrefecture;
-																	/*var_dump($sPrefecture)*/ ?>" /></td>
+																	//var_dump($sPrefecture) 
+																	?>" /></td>
 			</tr>
 			<tr>
 				<th>住所1（市区町村名）</th>
@@ -425,7 +426,6 @@ function subTradeEditComplete()
 		$sql = fnSqlTradeInsert(fnNextNo('TRADE'), $name, $nameFuri, $branch, $branchFuri, $zip, $prefecture, $address1, $address2, $tel, $fax, $mobile, $interior, $del);
 		$res = mysqli_query($conn, $sql);
 	}
-
 	$_REQUEST['act'] = 'tradeSearch';
 	subTrade();
 }
