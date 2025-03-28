@@ -36,7 +36,7 @@ function fnTradeEditCheck() {
 		return;
 	}
 
-	tmp = form.prefecture.value;
+	tmp = form.sPrefecture.value;
 	if (tmp.length > 10) {
 		alert('住所（都道府県）は10文字以内で入力してください');
 		return;
