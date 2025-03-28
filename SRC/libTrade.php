@@ -333,9 +333,7 @@ function subTradeEdit()
 			</tr>
 			<tr>
 				<th>住所（都道府県）</th>
-				<td><input type="text" name="sPrefecture" value="<?php print $sPrefecture;
-																	//var_dump($sPrefecture) 
-																	?>" /></td>
+				<td><input type="text" name="sPrefecture" value="<?php print $sPrefecture; ?>" /></td>
 			</tr>
 			<tr>
 				<th>住所1（市区町村名）</th>
@@ -365,7 +363,7 @@ function subTradeEdit()
 		</table>
 
 		<a href="javascript:fnTradeEditCheck();"><img src="./images/<?php print $btnImage; ?>" /></a>　
-		<a href="javascript:form.act.value='tradeSearch';form.submit();"><img src="./images/btn_return.png" /></a>　
+		<a href="javascript:form.act.value='tradeSearch'; form.submit();"><img src="./images/btn_return.png" /></a>　
 		<?php
 		if ($tradeNo) {
 		?>
