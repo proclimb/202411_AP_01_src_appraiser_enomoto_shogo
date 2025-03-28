@@ -261,7 +261,7 @@ function subTradeEdit()
 		$branch     = htmlspecialchars($row[2]);
 		$branchFuri = htmlspecialchars($row[3]);
 		$zip        = htmlspecialchars($row[4]);
-		$prefecture = htmlspecialchars($row[5]);
+		$sPrefecture = htmlspecialchars($row[5]);
 		$address1   = htmlspecialchars($row[6]);
 		$address2   = htmlspecialchars($row[7]);
 		$tel        = htmlspecialchars($row[8]);
@@ -278,6 +278,9 @@ function subTradeEdit()
 	}
 
 	subMenu();
+	/*データベースから都道府県を取得
+	$prefectureQuery = "SELECT id, name FROM prefectures ORDER BY name";
+	$prefectureResult = mysqli_query($conn, $prefectureQuery);*/
 ?>
 	<script type="text/javascript" src="./js/trade.js"></script>
 
@@ -330,7 +333,8 @@ function subTradeEdit()
 			</tr>
 			<tr>
 				<th>住所（都道府県）</th>
-				<td><input type="text" name="prefecture" value="<?php print $prefecture; ?>" /></td>
+				<td><input type="text" name="sPrefecture" value="<?php print $sPrefecture;
+																	/*var_dump($sPrefecture)*/ ?>" /></td>
 			</tr>
 			<tr>
 				<th>住所1（市区町村名）</th>
